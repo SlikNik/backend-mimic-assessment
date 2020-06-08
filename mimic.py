@@ -54,12 +54,8 @@ def create_mimic_dict(filename):
         mimic_list = f.read().split()
         mimic_dict[""] = [mimic_list[0]]
         while len(mimic_list) > 1:
-            # mimic_dict.setdefault(mimic_list[0], [mimic_list[1]]) 
-            # mimic_dict[mimic_list[0]] = [mimic_list[1]]
-            if mimic_list[0] in mimic_dict:
-                mimic_dict[mimic_list[0]].append(mimic_list[1])
-            else:
-                mimic_dict[mimic_list[0]] = [mimic_list[1]]
+            mimic_dict.setdefault(mimic_list[0], [mimic_list[1]]) 
+            mimic_dict[mimic_list[0]] += [mimic_list[1]]
             mimic_list.pop(0)
     # print(mimic_dict)
     return mimic_dict
