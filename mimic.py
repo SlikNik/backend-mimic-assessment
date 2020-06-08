@@ -55,11 +55,11 @@ def create_mimic_dict(filename):
         mimic_dict[""] = [mimic_list[0]]
         while len(mimic_list) > 1:
             mimic_dict.setdefault(mimic_list[0], [mimic_list[1]]) 
-            mimic_dict[mimic_list[0]] += [mimic_list[1]]
+            # mimic_dict[mimic_list[0]] += [mimic_list[1]]
+            mimic_dict[mimic_list[0]].append(mimic_list[1])
             mimic_list.pop(0)
     # print(mimic_dict)
     return mimic_dict
-    pass
 
 
 # create_mimic_dict("imdev.txt")
@@ -76,11 +76,14 @@ def print_mimic(mimic_dict, start_word):
     mimic_output = ''
     current_mimic = start_word
     for i in range(200):
-        next_mimic = random.choice(mimic_dict[current_mimic])
+        if current_mimic in mimic_dict:
+            next_mimic = random.choice(mimic_dict[current_mimic])
+        else:
+            next_mimic = ''
         mimic_output += f' {current_mimic}'
         current_mimic = next_mimic
     print(mimic_output)
-    pass
+
 
 # print_mimic(create_mimic_dict("alice.txt"), "Alice's")
 
