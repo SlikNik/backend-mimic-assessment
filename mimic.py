@@ -18,17 +18,19 @@ method which picks a random element from a non-empty list.
 You can try adding in line breaks around 70 columns so the output looks
 better.
 """
+import random
+import sys
+import logging
 
 __author__ = "Nikal Morgan"
+
+logger = logging.getLogger(__name__)
 
 """
 Demo Resources:
 setdefault()
 def print_top
 """
-
-import random
-import sys
 
 
 def create_mimic_dict(filename):
@@ -49,12 +51,15 @@ def create_mimic_dict(filename):
                 "who" : ["knows"]
             }
     """
+    # log "Reading {filename}"
+    # log found word
+    # log added word
     mimic_dict = {}
     with open(filename, "r") as f:
         mimic_list = f.read().split()
         mimic_dict[""] = [mimic_list[0]]
         while len(mimic_list) > 1:
-            mimic_dict.setdefault(mimic_list[0], [mimic_list[1]]) 
+            mimic_dict.setdefault(mimic_list[0], [mimic_list[1]])
             # mimic_dict[mimic_list[0]] += [mimic_list[1]]
             mimic_dict[mimic_list[0]].append(mimic_list[1])
             mimic_list.pop(0)
@@ -80,7 +85,7 @@ def print_mimic(mimic_dict, start_word):
             next_mimic = random.choice(mimic_dict[current_mimic])
         else:
             next_mimic = ''
-        mimic_output += f' {current_mimic}'
+        mimic_output += current_mimic
         current_mimic = next_mimic
     print(mimic_output)
 
@@ -89,6 +94,12 @@ def print_mimic(mimic_dict, start_word):
 
 # Provided main(), calls mimic_dict() and print_mimic()
 def main():
+    logging.basicConfig(
+        format='%(asctime)s.%(msecs)03d %(name)-12s '
+               '%(levelname)-8s %(message)s',
+        datefmt='%Y-%m-%d &%H:%M:%S'
+    )
+    logging.warning('This is a warning')
     if len(sys.argv) != 2:
         print('usage: python mimic.py file-to-read')
         sys.exit(1)
