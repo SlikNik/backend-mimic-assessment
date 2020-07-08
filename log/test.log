@@ -1,0 +1,32 @@
+2020-07-08 &16:03:59.191 __main__        INFO     Reading 'imdev.txt'
+2020-07-08 &16:03:59.191 __main__        INFO     Start Key: 'I'
+2020-07-08 &16:03:59.191 __main__        INFO     'I':'am'
+2020-07-08 &16:03:59.191 __main__        INFO     Added 'am' to 'I' key
+2020-07-08 &16:03:59.191 __main__        INFO     'am':'a'
+2020-07-08 &16:03:59.191 __main__        INFO     Added 'a' to 'am' key
+2020-07-08 &16:03:59.191 __main__        INFO     'a':'software'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'software' to 'a' key
+2020-07-08 &16:03:59.192 __main__        INFO     'software':'developer,'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'developer,' to 'software' key
+2020-07-08 &16:03:59.192 __main__        INFO     'developer,':'and'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'and' to 'developer,' key
+2020-07-08 &16:03:59.192 __main__        INFO     'and':'I'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'I' to 'and' key
+2020-07-08 &16:03:59.192 __main__        INFO     'I':'don't'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'don't' to 'I' key
+2020-07-08 &16:03:59.192 __main__        INFO     'don't':'care'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'care' to 'don't' key
+2020-07-08 &16:03:59.192 __main__        INFO     'care':'who'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'who' to 'care' key
+2020-07-08 &16:03:59.192 __main__        INFO     'who':'knows'
+2020-07-08 &16:03:59.192 __main__        INFO     Added 'knows' to 'who' key
+2020-07-08 &16:03:59.192 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.192 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""
+2020-07-08 &16:03:59.193 __main__        WARNING  No such key: knows. Reseting to ""

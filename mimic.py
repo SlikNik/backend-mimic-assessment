@@ -21,6 +21,13 @@ better.
 import random
 import sys
 import logging
+import os
+
+log_dir = os.path.abspath(os.path.join(os.getcwd(), 'log'))
+if not os.path.exists(log_dir):
+    logging.warning("{} does not exist. Creating it.".format(log_dir))
+    os.makedirs(log_dir)
+    os.path.join(log_dir, 'test.log')
 
 __author__ = "Nikal Morgan"
 
@@ -57,11 +64,17 @@ def create_mimic_dict(filename):
     mimic_dict = {}
     with open(filename, "r") as f:
         mimic_list = f.read().split()
+        logger.info("Reading '{}'".format(filename))
         mimic_dict[""] = [mimic_list[0]]
+        logger.info("Start Key: '{}'".format(mimic_list[0]))
         while len(mimic_list) > 1:
             mimic_dict.setdefault(mimic_list[0], [mimic_list[1]])
+            logger.info("'{}':'{}'".format(mimic_list[0],
+                                           mimic_list[1]))
             # mimic_dict[mimic_list[0]] += [mimic_list[1]]
             mimic_dict[mimic_list[0]].append(mimic_list[1])
+            logger.info("Added '{}' to '{}' key".format(mimic_list[1],
+                                                        mimic_list[0]))
             mimic_list.pop(0)
     # print(mimic_dict)
     return mimic_dict
@@ -84,10 +97,12 @@ def print_mimic(mimic_dict, start_word):
         if current_mimic in mimic_dict:
             next_mimic = random.choice(mimic_dict[current_mimic])
         else:
+            logger.warning('No such key: {}. Reseting to ""'
+                           .format(current_mimic))
             next_mimic = ''
         mimic_output += current_mimic
         current_mimic = next_mimic
-    print(mimic_output)
+    # print(mimic_output)
 
 
 # print_mimic(create_mimic_dict("alice.txt"), "Alice's")
@@ -95,11 +110,12 @@ def print_mimic(mimic_dict, start_word):
 # Provided main(), calls mimic_dict() and print_mimic()
 def main():
     logging.basicConfig(
-        format='%(asctime)s.%(msecs)03d %(name)-12s '
+        format='%(asctime)s.%(msecs)03d %(name)-12s    '
                '%(levelname)-8s %(message)s',
-        datefmt='%Y-%m-%d &%H:%M:%S'
+        datefmt='%Y-%m-%d &%H:%M:%S',
+        filename='log/test.log'
     )
-    logging.warning('This is a warning')
+    logger.setLevel(logging.INFO)
     if len(sys.argv) != 2:
         print('usage: python mimic.py file-to-read')
         sys.exit(1)
